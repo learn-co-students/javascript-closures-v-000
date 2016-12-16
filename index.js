@@ -37,4 +37,5 @@ function raspyDoorGuy() {
     givePassword,
     bribe
   };
+  
 }
