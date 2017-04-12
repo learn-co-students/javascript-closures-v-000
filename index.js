@@ -1,16 +1,22 @@
 function fatBastard(meal) {
   function whatsForDinner() {
-    if (meal === 'Mini-Me') {
+    if (!meal) {
+      console.log('my belly is empty. Woe is me.')
+    }else if(meal === 'Mini-Me') {
       console.log('The wee man is in my belly!');
     } else {
       console.log(`I'm eatin' a bit of ${meal}! Burp.`);
     }
   }
-  return whatsForDinner;
+
+  function digest() { // digest() is an inner function, a closure
+    meal = undefined; // digest() uses argument provided to the parent function
+  }
+
+  return {whatsForDinner, digest};
 }
 
-const whatsForDinner = fatBastard('Kobe beef');
+const { whatsForDinner, digest } = fatBastard('ribeye');
 whatsForDinner();
-
-const whatsInHisTummy = fatBastard('Mini-Me');
-whatsInHisTummy();
+digest();
+whatsForDinner();
