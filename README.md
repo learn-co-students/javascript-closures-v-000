@@ -1,7 +1,7 @@
 JavaScript Closures
 ---
 
-## Objectives
+### Objectives
 
 1. Explain what a closure is
 2. Explain how a closure works
