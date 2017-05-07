@@ -1,6 +1,8 @@
 JavaScript Closures
 ---
 
+#Was this a readme?
+
 ## Objectives
 
 1. Explain what a closure is
