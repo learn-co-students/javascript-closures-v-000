@@ -34,7 +34,7 @@ the returned function to a variable, and call it when we want to know what type 
 ```js
 function fatBastard(meal) {
   function whatsForDinner() { // whatsForDinner() is the inner function, a closure
-    if (meal === 'Mini-Me') { // whatsForDinner() uses argument provided to the parent function 
+    if (meal === 'Mini-Me') { // whatsForDinner() uses argument provided to the parent function
       console.log('The wee man is in my belly!');
     } else {
       console.log(`I'm eatin' a bit of ${meal}! Burp.`);
@@ -82,7 +82,7 @@ expand on what Fat Bastard can do with his meal, by allowing him to digest it:
 ```js
 function fatBastard(meal) {
   function whatsForDinner() { // whatsForDinner() is an inner function, a closure
-    if (!meal) { // whatsForDinner() uses argument provided to the parent function 
+    if (!meal) { // whatsForDinner() uses argument provided to the parent function
       console.log('My belly is empty. Woe is me.');
     } else if (meal === 'Mini-Me') {
       console.log('The wee man is in my belly!');
@@ -92,7 +92,7 @@ function fatBastard(meal) {
   }
 
   function digest() { // digest() is an inner function, a closure
-    meal = undefined; // digest() uses argument provided to the parent function 
+    meal = undefined; // digest() uses argument provided to the parent function
   }
 
   return {
@@ -112,7 +112,7 @@ digest();
 whatsForDinner(); // prints 'My belly is empty. Woe is me.'
 ```
 
-**Note:** 
+**Note:**
 If you have never seen the syntax above `const { whatsForDinner, digest } = fatBastard('ribeye');` don't be alarmed! That's a new ES6 feature called [Object Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring).  Basically, developers frequently found themselves having a large JS object such as a response from an API and they might want to declare several variables where the **name of the variable is the same as the name of the key of the object**. Example:
 ```js
 var firstName = response.firstName;
@@ -130,8 +130,7 @@ Check out the documentation and experiment in the console.
 Another thing to watch out for is that closures are the most common source of performance issues and memory leaks. Since
 the variables that are closed over might still be in use, they're either never or barely picked up by the garbage
 collection.
-
-**Note:** 
+**Note:**
 
 Garbage collection (GC) is basically something that happens in the background to automatically manage the
 memory used by our application. Stuff that's no longer being used by the program takes up unnecessary memory, and the GC
@@ -155,7 +154,7 @@ function raspyDoorGuy() {
   const password = 'yarr'; // password is a local variable created by raspyDoorGuy()
 
   function givePassword(givenPassword) { // givePassword() is the inner function, a closure
-    if (givenPassword === password) { // givePassword() uses variable declared in the parent function 
+    if (givenPassword === password) { // givePassword() uses variable declared in the parent function
       console.log('Ye may enter.');
     } else {
       console.log('Begone, landlubber!');
@@ -193,7 +192,7 @@ function raspyDoorGuy() {
   const password = 'yarr'; // password is a local variable created by raspyDoorGuy()
 
   function givePassword(givenPassword) { // givePassword() is an inner function, a closure
-    if (givenPassword === password) { // givePassword() uses variable declared in the parent function 
+    if (givenPassword === password) { // givePassword() uses variable declared in the parent function
       console.log('Ye may enter.');
     } else {
       console.log('Begone, landlubber!');
@@ -206,7 +205,7 @@ function raspyDoorGuy() {
 
   function bribe(amount) { // bribe() is an inner function, a closure
     if (willBreakPrinciples(amount)) { // bribe() uses private method created in the parent function
-      return password; // bribe() uses variable declared in the parent function 
+      return password; // bribe() uses variable declared in the parent function
     } else {
       console.log("Pssht. That won't work.");
     }
